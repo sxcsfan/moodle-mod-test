@@ -23,7 +23,7 @@
 	if(isset($_POST['msg'])){
 		$cwrapper = new HttpClient();
 		$url = 'http://www.elearninghan.com/moodle_mod_test/moodle_test_post.php';
-		echo $cwrapper->Post($url, $data=array('msg'=>$_POST['msg'],'uid'=>$USER->id,'name'=>$USER->firstname.' '.$USER->lastname,'email'=>$USER->email));
+		echo $cwrapper->Post($url, $data=array('msg'=>$_POST['msg'],'uid'=>$USER->id,'name'=>$USER->firstname.' '.$USER->lastname,'email'=>$USER->email,'source'=>$_SERVER['HTTP_HOST'].'('.$_SERVER["REMOTE_ADDR"].')'));
 	}else{
 		print_error('You are visiting this page illegally!!!');
 	}
